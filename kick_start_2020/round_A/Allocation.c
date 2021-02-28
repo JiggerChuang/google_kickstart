@@ -34,9 +34,7 @@ int main(){
 	int left=0, right=0;
 	int *house;
 
-	printf("input test case: ");
 	scanf("%d", &test_case);
-
 	for (int i = 0; i < test_case; i++){
 		scanf("%d %d", &house_num, &budget);
 		house = calloc(house_num, sizeof(int));
@@ -49,13 +47,6 @@ int main(){
 		right = house_num - 1;
 		quick_sort(house, left, right);
 
-		// debug
-		printf("sorted house price:");
-		for (int j = 0 ; j < house_num; j++){
-			printf(" %d ", house[j]);
-		}
-		printf("\n");
-
 		for (int j = 0; j < house_num; j++){
 			if ((budget - house[j]) >= 0){
 				buy_num++;
@@ -64,7 +55,6 @@ int main(){
 				break;
 			}
 		}
-
 		printf("Case #%d: %d\n", (i+1), buy_num);	
 		
 		// reinitial
@@ -73,13 +63,6 @@ int main(){
 		buy_num = 0;
 		free(house);
 	}
-
-	// debug
-	//printf("house: ");
-	//for (int i = 0; i < house_num; i++){
-	//	printf("%d ", house[i]);
-	//}
-	//printf("\n");
 	
 	return 0;
 }
